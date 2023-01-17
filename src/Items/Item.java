@@ -1,4 +1,4 @@
-// abstract class that contains name, value and overrides toString, equals and hashCode methods
+package Items;// abstract class that contains name, value and overrides toString, equals and hashCode methods
 
 import java.util.Objects;
 
@@ -24,7 +24,7 @@ public abstract class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
+        return "Items.Item{" +
                 "name='" + name + '\'' +
                 ", value=" + value +
                 '}';

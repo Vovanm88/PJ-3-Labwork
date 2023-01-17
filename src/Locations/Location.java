@@ -1,3 +1,5 @@
+package Locations;
+
 import java.util.Objects;
 
 public class Location {

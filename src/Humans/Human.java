@@ -1,10 +1,14 @@
-// class Human with name, scared flag, location and actions and occupation and implements mentalAction and PhysicalAction
+package Humans;// class Humans.Human with name, scared flag, location and actions and occupation and implements mentalAction and PhysicalAction
 
-import java.util.List;
+import Live.Dog;
+import Locations.City;
+import Locations.Home;
+import Locations.Location;
+
 import java.util.Objects;
 
-public class Human implements mentalAction, physAction{
-    String name;
+public class Human implements MentalAction, PhysAction {
+    private String name;
     private boolean scared;
     private Location location;
     private Occupation occupation;
@@ -13,6 +17,9 @@ public class Human implements mentalAction, physAction{
         this.name = name;
         this.location = location;
         this.occupation = occupation;
+    }
+    public String getName(){
+        return name;
     }
     public Occupation getOccupation() {
         return occupation;
@@ -48,15 +55,54 @@ public class Human implements mentalAction, physAction{
         }
     }
     public void callHome(Home home) {
-        System.out.println(name + " звонит домой");
+        class Phone {
+            public void call(Home home) {
+                System.out.println("Телефон звонит в дом " + home);
+            }
+        }
+        Phone phone = new Phone();
+        phone.call(home);
     }
     public void readSomething(String message) {
         System.out.println(name + " читает: " + message);
     }
+    //static Builder class
+    public static class Builder {
+        private String name;
+        private Location location;
+        private Occupation occupation;
+        private City city;
+
+        public Builder(String name) {
+            this.name = name;
+        }
+        public Builder setLocation(Location location) {
+            this.location = location;
+            return this;
+        }
+        public Builder setOccupation(Occupation occupation) {
+            this.occupation = occupation;
+            return this;
+        }
+        public Builder setCity(City city) {
+            this.city = city;
+            return this;
+        }
+        public Human build() {
+            if(occupation == Occupation.ROBBER)
+                return new Robber(name, location, city);
+            return new Human(name, location, occupation);
+        }
+    }
+    public void moveDog(Dog dog, Location location) {
+        dog.setLocation(location, this);
+    }
+    
+    
     // override toString, hashCode, equals
     @Override
     public String toString() {
-        return "Human{" +
+        return "Humans.Human{" +
                 "name='" + name + '\'' +
                 ", scared=" + scared +
                 ", location=" + location +

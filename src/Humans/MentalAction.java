@@ -1,4 +1,9 @@
-public interface mentalAction{
+package Humans;
+
+import Locations.City;
+import Locations.Location;
+
+public interface MentalAction {
     void think(String thought);
     void goingTo(Location location, String message);
     void heard(String message);

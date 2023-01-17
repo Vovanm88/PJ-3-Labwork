@@ -1,8 +1,9 @@
+package Locations;
 
 import java.util.ArrayList;
 import java.util.List;
 public class City extends Location {
-    private int robberCounter=99;
+    private int robberCounter=0;
     private List<String> newsList = new ArrayList<String>();
     public City(String name) {
         super(name);

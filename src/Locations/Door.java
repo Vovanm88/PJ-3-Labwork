@@ -1,3 +1,8 @@
+package Locations;
+
+import Humans.Human;
+import Humans.Occupation;
+
 public class Door {
     private boolean isOpen;
     private boolean hacked=false;
